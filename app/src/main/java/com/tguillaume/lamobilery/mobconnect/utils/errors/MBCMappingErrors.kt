@@ -8,6 +8,7 @@ object MBCMappingErrors {
 
     fun initErrorMap(sContext : Context){
 
+        GTAErrorManager.registerNewError(MBCErrorKeys.DEFAULT, sContext.getString(R.string.error_default))
         GTAErrorManager.registerNewError(MBCErrorKeys.SERVER_IP_EMPTY, sContext.getString(R.string.error_server_ip_empty))
     }
 }

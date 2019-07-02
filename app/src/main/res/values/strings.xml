@@ -6,5 +6,6 @@
     <string name="fragment_config_server_validate_btn">Configurer</string>
 
     <!-- Error -->
+    <string name="error_default">Une erreur est survenue</string>
     <string name="error_server_ip_empty">Merci de saisir une adresse IP</string>
 </resources>
