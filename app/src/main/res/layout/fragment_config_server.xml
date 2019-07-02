@@ -52,7 +52,6 @@
         android:background="@drawable/shape_rectangle_rounded_white_transparent"
         android:textColor="@color/config_server_text_light"
         android:textColorHint="@color/config_server_hint_light"
-        android:inputType="numberDecimal"
         android:hint="@string/fragment_config_serveur_ip_edittext"/>
 
 

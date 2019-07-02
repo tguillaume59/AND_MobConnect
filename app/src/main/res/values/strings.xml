@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Mob Connect</string>
+    <string name="activity_loader_textview">Chargement</string>
     <string name="fragment_config_server_title_textview">Configuration du\nMobil\'Home</string>
     <string name="fragment_config_serveur_ip_edittext">IP du serveur</string>
     <string name="fragment_config_server_validate_btn">Configurer</string>
+
+    <!-- Error -->
+    <string name="error_server_ip_empty">Merci de saisir une adresse IP</string>
 </resources>

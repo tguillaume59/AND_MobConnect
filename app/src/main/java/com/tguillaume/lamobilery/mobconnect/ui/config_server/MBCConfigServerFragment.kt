@@ -4,10 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.tguillaume.bird.lib_bird_kotlin.viewmodels.GTAFragmentInterface
 import com.tguillaume.lamobilery.mobconnect.R
 import com.tguillaume.lamobilery.mobconnect.ui.common.base_fragments.MBCBaseFragment
+import com.tguillaume.lamobilery.mobconnect.ui.config_server.viewmodels.MBCConfigServerViewModel
+import kotlinx.android.synthetic.main.fragment_config_server.*
 
-class MBCConfigServerFragment : MBCBaseFragment() {
+class MBCConfigServerFragment : MBCBaseFragment(), GTAFragmentInterface {
+
+    val mViewModel : MBCConfigServerViewModel = MBCConfigServerViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -16,9 +21,23 @@ class MBCConfigServerFragment : MBCBaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        this.initOnClick()
+        this.bindViewModel()
+    }
+
+    override fun bindViewModel() {
+        super.subscribeToError(mViewModel)
+        super.subscribeToLoader(mViewModel)
+
+        mViewModel.loadData()
     }
 
     private fun initOnClick(){
+        fragment_config_server_validate_btn.setOnClickListener{this.onClickConfigure()}
+    }
 
+    private fun onClickConfigure(){
+        val tIp : String = fragment_config_serveur_ip_edittext.text.toString()
+        mViewModel.configureServer(tIp)
     }
 }
