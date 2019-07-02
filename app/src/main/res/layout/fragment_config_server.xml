@@ -2,15 +2,73 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/app_background_light">
 
-    <TextView
+    <android.support.constraint.Guideline
+        android:id="@+id/fragment_config_server_horizontal_30_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="configuration du serveur"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30"/>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/fragment_config_server_logo_imageview"
+        android:layout_width="@dimen/fragment_config_server_logo_size"
+        android:layout_height="@dimen/fragment_config_server_logo_size"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_config_server_horizontal_30_guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:tint="@color/config_server_logo_tint"
+        android:src="@drawable/ic_camper"/>
+
+    <TextView
+        android:id="@+id/fragment_config_server_title_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_config_server_horizontal_30_guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="30dp"
+        android:textColor="@color/config_server_color_light"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:text="@string/fragment_config_server_title_textview"/>
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/fragment_config_serveur_ip_edittext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_config_server_title_textview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:background="@drawable/shape_rectangle_rounded_white_transparent"
+        android:textColor="@color/config_server_text_light"
+        android:textColorHint="@color/config_server_hint_light"
+        android:inputType="numberDecimal"
+        android:hint="@string/fragment_config_serveur_ip_edittext"/>
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/fragment_config_server_validate_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/shape_rectangle_rounded_green"
+        android:textColor="@color/config_server_btn_text_light"
+        android:padding="10dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="@string/fragment_config_server_validate_btn"/>
 
 </android.support.constraint.ConstraintLayout>
