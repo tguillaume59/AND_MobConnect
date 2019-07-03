@@ -5,9 +5,7 @@ import com.tguillaume.bird.lib_bird_kotlin.callbacks.GTADefaultCallBack
 import com.tguillaume.bird.lib_bird_kotlin.errors.GTAError
 import com.tguillaume.bird.lib_bird_kotlin.errors.GTAErrorManager
 import com.tguillaume.lamobilery.mobconnect.services.home_server.clients.MBCHomeServerClientIntefaces
-import com.tguillaume.lamobilery.mobconnect.services.home_server.models.MBCBrightnessState
-import com.tguillaume.lamobilery.mobconnect.services.home_server.models.MBCLinkedSensors
-import com.tguillaume.lamobilery.mobconnect.services.home_server.models.MBCTemperature
+import com.tguillaume.lamobilery.mobconnect.services.home_server.models.*
 import com.tguillaume.lamobilery.mobconnect.utils.network.MBCNetworkResponseKeys.SUCCESS
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -62,14 +60,45 @@ class MBCHomeServerManager : MBCHomeServerManagerInterface{
         }
     }
 
+    /**
+     * cf doc dans l'interface
+     */
     override fun getBrightnessState(sIdSensor : String, sCallback: GTADefaultCallBack){
         Log.i(TAG, "getBrightnessState")
         GlobalScope.launch(Dispatchers.Main + CoroutineExceptionHandler { _, t ->
             val tError: GTAError = GTAErrorManager.getErrorWithThrowable(t)
             sCallback.onCompletion(null, tError)
         }) {
-            val tBrightness : MBCBrightnessState = mHomeServerClient.getBrightnessState(sIdSensor).await()
-            sCallback.onCompletion(tBrightness,null)
+            val tBrightnessState : MBCBrightnessState = mHomeServerClient.getBrightnessState(sIdSensor).await()
+            sCallback.onCompletion(tBrightnessState,null)
+        }
+    }
+
+    /**
+     * cf doc dans l'interface
+     */
+    override fun getPressureState(sIdSensor : String, sCallback: GTADefaultCallBack){
+        Log.i(TAG, "getPressureState")
+        GlobalScope.launch(Dispatchers.Main + CoroutineExceptionHandler { _, t ->
+            val tError: GTAError = GTAErrorManager.getErrorWithThrowable(t)
+            sCallback.onCompletion(null, tError)
+        }) {
+            val tPressureState : MBCPressureState = mHomeServerClient.getPressureState(sIdSensor).await()
+            sCallback.onCompletion(tPressureState,null)
+        }
+    }
+
+    /**
+     * cf doc dans l'interface
+     */
+    override fun getMotions(sIdSensor : String, sCallback: GTADefaultCallBack){
+        Log.i(TAG, "getMotions")
+        GlobalScope.launch(Dispatchers.Main + CoroutineExceptionHandler { _, t ->
+            val tError: GTAError = GTAErrorManager.getErrorWithThrowable(t)
+            sCallback.onCompletion(null, tError)
+        }) {
+            val tMotion : MBCMotion = mHomeServerClient.getMotions(sIdSensor).await()
+            sCallback.onCompletion(tMotion,null)
         }
     }
 }

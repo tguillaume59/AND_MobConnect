@@ -1,8 +1,6 @@
 package com.tguillaume.lamobilery.mobconnect.services.home_server.clients
 
-import com.tguillaume.lamobilery.mobconnect.services.home_server.models.MBCBrightnessState
-import com.tguillaume.lamobilery.mobconnect.services.home_server.models.MBCLinkedSensors
-import com.tguillaume.lamobilery.mobconnect.services.home_server.models.MBCTemperature
+import com.tguillaume.lamobilery.mobconnect.services.home_server.models.*
 import com.tguillaume.lamobilery.mobconnect.utils.network.MBCUrls
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
@@ -21,4 +19,10 @@ interface MBCHomeServerClientIntefaces {
 
     @GET(MBCUrls.SENSOR_BRIGHTNESS)
     fun getBrightnessState(@Path(MBCUrls.URL_PRM_ID) sId : String ) : Deferred<MBCBrightnessState>
+
+    @GET(MBCUrls.SENSOR_PRESSURE)
+    fun getPressureState(@Path(MBCUrls.URL_PRM_ID) sId : String ) : Deferred<MBCPressureState>
+
+    @GET(MBCUrls.SENSOR_MOTION)
+    fun getMotions(@Path(MBCUrls.URL_PRM_ID) sId : String ) : Deferred<MBCMotion>
 }

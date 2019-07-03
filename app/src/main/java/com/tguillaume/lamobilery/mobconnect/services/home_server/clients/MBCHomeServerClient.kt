@@ -1,9 +1,7 @@
 package com.tguillaume.lamobilery.mobconnect.services.home_server.clients
 
 import com.tguillaume.bird.lib_bird_kotlin.network.manager.GTANetworkManager
-import com.tguillaume.lamobilery.mobconnect.services.home_server.models.MBCBrightnessState
-import com.tguillaume.lamobilery.mobconnect.services.home_server.models.MBCLinkedSensors
-import com.tguillaume.lamobilery.mobconnect.services.home_server.models.MBCTemperature
+import com.tguillaume.lamobilery.mobconnect.services.home_server.models.*
 import com.tguillaume.lamobilery.mobconnect.utils.network.MBCUrlKeys
 import kotlinx.coroutines.Deferred
 
@@ -27,5 +25,15 @@ class MBCHomeServerClient : MBCHomeServerClientIntefaces {
     override fun getBrightnessState(sId: String): Deferred<MBCBrightnessState> {
         return GTANetworkManager.getAPI(MBCUrlKeys.HOME_SERVER_URL, MBCHomeServerClientIntefaces::class.java)
                 .getBrightnessState(sId)
+    }
+
+    override fun getPressureState(sId: String): Deferred<MBCPressureState> {
+        return GTANetworkManager.getAPI(MBCUrlKeys.HOME_SERVER_URL, MBCHomeServerClientIntefaces::class.java)
+                .getPressureState(sId)
+    }
+
+    override fun getMotions(sId: String): Deferred<MBCMotion> {
+        return GTANetworkManager.getAPI(MBCUrlKeys.HOME_SERVER_URL, MBCHomeServerClientIntefaces::class.java)
+                .getMotions(sId)
     }
 }

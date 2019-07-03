@@ -10,6 +10,8 @@ class MBCSensorFragmentManager : MBCSensorFragmentManagerInterface {
         return when (sSensorType){
             MBCEnumSensorsAvailable.TEMPERATURE -> MBCFragmentKeys.SENSOR_TEMPERATURE
             MBCEnumSensorsAvailable.BRIGHTNESS -> MBCFragmentKeys.SENSOR_BRIGHTNESS
+            MBCEnumSensorsAvailable.MOTION -> MBCFragmentKeys.SENSOR_MOTION
+            MBCEnumSensorsAvailable.PRESSURE -> MBCFragmentKeys.SENSOR_PRESSURE
             else -> GTADefaultEnumFragment.DEFAULT_ERROR_FRAGMENT
         }
 

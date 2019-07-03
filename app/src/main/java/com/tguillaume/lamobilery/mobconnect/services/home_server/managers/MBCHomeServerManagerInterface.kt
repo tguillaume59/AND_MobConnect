@@ -31,4 +31,18 @@ interface MBCHomeServerManagerInterface : KoinComponent {
      * @param sCallback le callback
      */
     fun getBrightnessState(sIdSensor : String, sCallback: GTADefaultCallBack)
+
+    /**
+     * Permet de récupérer l'état du capteur de pression
+     * @param sIdSensor l'id du capteur que l'on veut interroger
+     * @param sCallback le callback
+     */
+    fun getPressureState(sIdSensor : String, sCallback: GTADefaultCallBack)
+
+    /**
+     * Permet de récupérer les informations du capteur de présence
+     * @param sIdSensor l'id du capteur que l'on veut interroger
+     * @param sCallback le callback
+     */
+    fun getMotions(sIdSensor : String, sCallback: GTADefaultCallBack)
 }
