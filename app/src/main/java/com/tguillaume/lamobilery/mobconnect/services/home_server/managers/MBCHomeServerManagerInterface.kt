@@ -10,4 +10,10 @@ interface MBCHomeServerManagerInterface : KoinComponent {
      * @param sCallback le callback
      */
     fun pingServer( sCallback : GTADefaultCallBack)
+
+    /**
+     * Permet de récupérer la liste des capteurs disponibles
+     * @param sCallback le callback
+     */
+    fun getListLinkedSensors(sCallback: GTADefaultCallBack)
 }
