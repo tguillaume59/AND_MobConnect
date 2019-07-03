@@ -4,6 +4,7 @@ import com.tguillaume.bird.lib_bird_kotlin.navigation.GTAFragmentCreator
 import com.tguillaume.lamobilery.mobconnect.ui.config_server.MBCConfigServerFragment
 import com.tguillaume.lamobilery.mobconnect.ui.home.MBCHomeFragment
 import com.tguillaume.lamobilery.mobconnect.ui.sensors.brightness.MBCSensorBrightnessFragment
+import com.tguillaume.lamobilery.mobconnect.ui.sensors.pressure.MBCSensorPressureFragment
 import com.tguillaume.lamobilery.mobconnect.ui.sensors.temperature.MBCSensorTemperatureFragment
 
 object MBCMapingFragments {
@@ -13,5 +14,6 @@ object MBCMapingFragments {
         GTAFragmentCreator.registerNewFragment(MBCFragmentKeys.HOME, MBCHomeFragment::class.java)
         GTAFragmentCreator.registerNewFragment(MBCFragmentKeys.SENSOR_TEMPERATURE, MBCSensorTemperatureFragment::class.java)
         GTAFragmentCreator.registerNewFragment(MBCFragmentKeys.SENSOR_BRIGHTNESS, MBCSensorBrightnessFragment::class.java)
+        GTAFragmentCreator.registerNewFragment(MBCFragmentKeys.SENSOR_PRESSURE, MBCSensorPressureFragment::class.java)
     }
 }
