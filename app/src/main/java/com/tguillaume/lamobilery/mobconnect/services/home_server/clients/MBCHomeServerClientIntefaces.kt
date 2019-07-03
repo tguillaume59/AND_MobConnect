@@ -25,4 +25,15 @@ interface MBCHomeServerClientIntefaces {
 
     @GET(MBCUrls.SENSOR_MOTION)
     fun getMotions(@Path(MBCUrls.URL_PRM_ID) sId : String ) : Deferred<MBCMotion>
+
+    @GET(MBCUrls.SENSOR_LIGHT)
+    fun getLightStatus(@Path(MBCUrls.URL_PRM_ID) sId : String ) : Deferred<MBCLightStates>
+
+    @GET(MBCUrls.SENSOR_LIGHT_CHANGE_STATE)
+    fun changeLightState(@Path(MBCUrls.URL_PRM_ID) sId : String,
+                         @Path(MBCUrls.URL_PRM_COLOR) sColor : String,
+                         @Path(MBCUrls.URL_PRM_STATUS) sState : String) : Deferred<MBCLightStates>
+
+    @GET(MBCUrls.SENSOR_LIGHT)
+    fun launchSapinOfDevil(@Path(MBCUrls.SENSOR_LIGHT_SAPIN_OF_DEVIL) sNumber : String ) : Deferred<MBCLightStates>
 }

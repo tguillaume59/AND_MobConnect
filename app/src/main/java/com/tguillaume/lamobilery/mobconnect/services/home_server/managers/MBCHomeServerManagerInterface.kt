@@ -45,4 +45,27 @@ interface MBCHomeServerManagerInterface : KoinComponent {
      * @param sCallback le callback
      */
     fun getMotions(sIdSensor : String, sCallback: GTADefaultCallBack)
+
+    /**
+     * Permet de récupérer l'état des leds
+     * @param sIdSensor l'id du capteur que l'on veut interroger
+     * @param sCallback le callback
+     */
+    fun getLightStatus(sIdSensor : String, sCallback: GTADefaultCallBack)
+
+    /**
+     * Permet de changer l'état d'une led
+     * @param sId l'id du capteur
+     * @param sColor la led a modifier (color (enum) : LEDG ou LEDR)
+     * @param sState le state (tatus (enum) : ON ou OFF)
+     * @param sCallback le callback
+     */
+    fun changeLightState(sId: String, sColor: String, sState: String, sCallback: GTADefaultCallBack)
+
+    /**
+     * @EasterEggs
+     * Permet de transformer le capteur en un sapin de noel
+     * @param sCallback le callback
+     */
+    fun launchSapinOfDevil(sCallback: GTADefaultCallBack)
 }

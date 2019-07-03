@@ -101,4 +101,46 @@ class MBCHomeServerManager : MBCHomeServerManagerInterface{
             sCallback.onCompletion(tMotion,null)
         }
     }
+
+    /**
+     * cf doc dans l'interface
+     */
+    override fun getLightStatus(sIdSensor : String, sCallback: GTADefaultCallBack){
+        Log.i(TAG, "getLightStatus")
+        GlobalScope.launch(Dispatchers.Main + CoroutineExceptionHandler { _, t ->
+            val tError: GTAError = GTAErrorManager.getErrorWithThrowable(t)
+            sCallback.onCompletion(null, tError)
+        }) {
+            val tLightState : MBCLightStates = mHomeServerClient.getLightStatus(sIdSensor).await()
+            sCallback.onCompletion(tLightState,null)
+        }
+    }
+
+    /**
+     * cf doc dans l'interface
+     */
+    override fun changeLightState(sId: String, sColor: String, sState: String, sCallback: GTADefaultCallBack){
+        Log.i(TAG, "changeLightState")
+        GlobalScope.launch(Dispatchers.Main + CoroutineExceptionHandler { _, t ->
+            val tError: GTAError = GTAErrorManager.getErrorWithThrowable(t)
+            sCallback.onCompletion(null, tError)
+        }) {
+            mHomeServerClient.changeLightState(sId,sColor,sState).await()
+            sCallback.onCompletion(SUCCESS,null)
+        }
+    }
+
+    /**
+     * cf doc dans l'interface
+     */
+    override fun launchSapinOfDevil(sCallback: GTADefaultCallBack){
+        Log.i(TAG, "launchSapinOfDevil")
+        GlobalScope.launch(Dispatchers.Main + CoroutineExceptionHandler { _, t ->
+            val tError: GTAError = GTAErrorManager.getErrorWithThrowable(t)
+            sCallback.onCompletion(null, tError)
+        }) {
+            mHomeServerClient.launchSapinOfDevil("50").await()
+            sCallback.onCompletion(SUCCESS,null)
+        }
+    }
 }
