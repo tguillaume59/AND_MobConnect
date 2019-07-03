@@ -8,6 +8,8 @@
     <!-- Error -->
     <string name="error_default">Une erreur est survenue</string>
     <string name="error_server_ip_empty">Merci de saisir une adresse IP</string>
+    <string name="fragment_home_title_textview">Mon bureau</string>
+
     <!-- Sensors -->
     <string name="sensor_default">N/A</string>
     <string name="sensor_temperature">Température</string>

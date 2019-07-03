@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="fragment_config_server_logo_size">150dp</dimen>
+    <dimen name="holder_home_sensor_logo_size">36dp</dimen>
 </resources>
