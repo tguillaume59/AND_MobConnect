@@ -8,4 +8,11 @@
     <!-- Error -->
     <string name="error_default">Une erreur est survenue</string>
     <string name="error_server_ip_empty">Merci de saisir une adresse IP</string>
+    <!-- Sensors -->
+    <string name="sensor_default">N/A</string>
+    <string name="sensor_temperature">Température</string>
+    <string name="sensor_brightness">Luminosité</string>
+    <string name="sensor_light">Lumière</string>
+    <string name="sensor_pressure">Pression</string>
+    <string name="sensor_motion">Mouvement</string>
 </resources>

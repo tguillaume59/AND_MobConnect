@@ -6,6 +6,8 @@ import com.tguillaume.lamobilery.mobconnect.services.home_server.clients.MBCHome
 import com.tguillaume.lamobilery.mobconnect.services.home_server.clients.MBCHomeServerClientIntefaces
 import com.tguillaume.lamobilery.mobconnect.services.home_server.managers.MBCHomeServerManager
 import com.tguillaume.lamobilery.mobconnect.services.home_server.managers.MBCHomeServerManagerInterface
+import com.tguillaume.lamobilery.mobconnect.services.sensors.managers.MBCUISensorManager
+import com.tguillaume.lamobilery.mobconnect.services.sensors.managers.MBCUISensorManagerInterface
 import com.tguillaume.lamobilery.mobconnect.services.session.managers.MBCSessionManager
 import com.tguillaume.lamobilery.mobconnect.services.session.managers.interfaces.MBCSessionManagerInterface
 import com.tguillaume.lamobilery.mobconnect.utils.network.managers.MBCNetworkManager
@@ -29,4 +31,5 @@ val DependencyInjectionModules = module {
     single<MBCHomeServerManagerInterface> { MBCHomeServerManager() }
     single<MBCNetworkManagerInterface> { MBCNetworkManager() }
     single<MBCHomeServerClientIntefaces> { MBCHomeServerClient() }
+    factory<MBCUISensorManagerInterface> { MBCUISensorManager() }
 }
