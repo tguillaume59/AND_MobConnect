@@ -49,7 +49,7 @@ class MBCHomeServerClient : MBCHomeServerClientIntefaces {
                 .changeLightState(sId,sColor,sState)
     }
 
-    override fun launchSapinOfDevil(@Path(MBCUrls.SENSOR_LIGHT_SAPIN_OF_DEVIL) sNumber : String ) : Deferred<MBCLightStates>{
+    override fun launchSapinOfDevil(@Path(MBCUrls.SENSOR_LIGHT_SAPIN_OF_DEVIL) sNumber : String ) : Deferred<Unit>{
         return GTANetworkManager.getAPI(MBCUrlKeys.HOME_SERVER_URL, MBCHomeServerClientIntefaces::class.java)
                 .launchSapinOfDevil(sNumber)
     }

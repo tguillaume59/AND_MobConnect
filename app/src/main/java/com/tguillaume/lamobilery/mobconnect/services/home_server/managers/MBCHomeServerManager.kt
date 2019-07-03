@@ -125,8 +125,8 @@ class MBCHomeServerManager : MBCHomeServerManagerInterface{
             val tError: GTAError = GTAErrorManager.getErrorWithThrowable(t)
             sCallback.onCompletion(null, tError)
         }) {
-            mHomeServerClient.changeLightState(sId,sColor,sState).await()
-            sCallback.onCompletion(SUCCESS,null)
+            val tState : MBCLightStates = mHomeServerClient.changeLightState(sId,sColor,sState).await()
+            sCallback.onCompletion(tState,null)
         }
     }
 

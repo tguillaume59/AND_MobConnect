@@ -12,6 +12,7 @@ class MBCSensorFragmentManager : MBCSensorFragmentManagerInterface {
             MBCEnumSensorsAvailable.BRIGHTNESS -> MBCFragmentKeys.SENSOR_BRIGHTNESS
             MBCEnumSensorsAvailable.MOTION -> MBCFragmentKeys.SENSOR_MOTION
             MBCEnumSensorsAvailable.PRESSURE -> MBCFragmentKeys.SENSOR_PRESSURE
+            MBCEnumSensorsAvailable.LIGHT -> MBCFragmentKeys.SENSOR_LIGHT
             else -> GTADefaultEnumFragment.DEFAULT_ERROR_FRAGMENT
         }
 

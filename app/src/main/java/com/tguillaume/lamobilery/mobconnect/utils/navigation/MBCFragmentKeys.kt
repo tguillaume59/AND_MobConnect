@@ -8,4 +8,5 @@ object MBCFragmentKeys {
     const val SENSOR_BRIGHTNESS : String = "SENSOR_BRIGHTNESS"
     const val SENSOR_MOTION : String = "SENSOR_MOTION"
     const val SENSOR_PRESSURE : String = "SENSOR_PRESSURE"
+    const val SENSOR_LIGHT : String = "SENSOR_LIGHT"
 }

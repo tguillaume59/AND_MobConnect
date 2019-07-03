@@ -4,6 +4,7 @@ import com.tguillaume.lamobilery.mobconnect.services.home_server.models.*
 import com.tguillaume.lamobilery.mobconnect.utils.network.MBCUrls
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface MBCHomeServerClientIntefaces {
@@ -29,11 +30,11 @@ interface MBCHomeServerClientIntefaces {
     @GET(MBCUrls.SENSOR_LIGHT)
     fun getLightStatus(@Path(MBCUrls.URL_PRM_ID) sId : String ) : Deferred<MBCLightStates>
 
-    @GET(MBCUrls.SENSOR_LIGHT_CHANGE_STATE)
+    @POST(MBCUrls.SENSOR_LIGHT_CHANGE_STATE)
     fun changeLightState(@Path(MBCUrls.URL_PRM_ID) sId : String,
                          @Path(MBCUrls.URL_PRM_COLOR) sColor : String,
                          @Path(MBCUrls.URL_PRM_STATUS) sState : String) : Deferred<MBCLightStates>
 
     @GET(MBCUrls.SENSOR_LIGHT)
-    fun launchSapinOfDevil(@Path(MBCUrls.SENSOR_LIGHT_SAPIN_OF_DEVIL) sNumber : String ) : Deferred<MBCLightStates>
+    fun launchSapinOfDevil(@Path(MBCUrls.SENSOR_LIGHT_SAPIN_OF_DEVIL) sNumber : String ) : Deferred<Unit>
 }
