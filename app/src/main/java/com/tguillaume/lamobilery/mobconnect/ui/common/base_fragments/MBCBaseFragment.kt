@@ -12,12 +12,13 @@ import com.tguillaume.bird.lib_bird_kotlin.navigation.defaultFragments.GTAFragme
 import com.tguillaume.bird.lib_bird_kotlin.navigation.interfaces.GTANavigationListener
 import com.tguillaume.bird.lib_bird_kotlin.sharedPreferences.GTASharedPrefManager
 import com.tguillaume.bird.lib_bird_kotlin.sharedPreferences.GTASharedPrefManagerInterface
+import com.tguillaume.bird.lib_bird_kotlin.viewmodels.GTAFragmentInterface
 import com.tguillaume.lamobilery.mobconnect.ui.common.base_viewmodels.MBCBaseViewModel
 import com.tguillaume.lamobilery.mobconnect.ui.common.listeners.MBCLoaderListener
 import com.tguillaume.lamobilery.mobconnect.utils.errors.MBCErrorKeys
 import com.tguillaume.lamobilery.mobconnect.utils.shared_prefs.MBCSharedPrefKeys
 
-abstract class MBCBaseFragment : GTAFragment() {
+abstract class MBCBaseFragment : GTAFragment(), GTAFragmentInterface {
 
     protected lateinit var mContext: Context
     protected lateinit var mSharedPrefManager: GTASharedPrefManagerInterface

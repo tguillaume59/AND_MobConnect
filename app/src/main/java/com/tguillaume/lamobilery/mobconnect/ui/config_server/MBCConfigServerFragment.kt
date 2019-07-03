@@ -4,14 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.tguillaume.bird.lib_bird_kotlin.viewmodels.GTAFragmentInterface
 import com.tguillaume.lamobilery.mobconnect.BuildConfig
 import com.tguillaume.lamobilery.mobconnect.R
 import com.tguillaume.lamobilery.mobconnect.ui.common.base_fragments.MBCBaseFragment
 import com.tguillaume.lamobilery.mobconnect.ui.config_server.viewmodels.MBCConfigServerViewModel
+import com.tguillaume.lamobilery.mobconnect.utils.navigation.MBCFragmentKeys
 import kotlinx.android.synthetic.main.fragment_config_server.*
 
-class MBCConfigServerFragment : MBCBaseFragment(), GTAFragmentInterface {
+class MBCConfigServerFragment : MBCBaseFragment() {
 
     val mViewModel : MBCConfigServerViewModel = MBCConfigServerViewModel()
 
@@ -25,7 +25,7 @@ class MBCConfigServerFragment : MBCBaseFragment(), GTAFragmentInterface {
         this.initOnClick()
         this.bindViewModel()
 
-        if(BuildConfig.DEBUG) fragment_config_serveur_ip_edittext.setText("192.168.1.104:8081")
+        if(BuildConfig.DEBUG) fragment_config_serveur_ip_edittext.setText("192.168.1.104:8080")
     }
 
     override fun bindViewModel() {
@@ -33,9 +33,7 @@ class MBCConfigServerFragment : MBCBaseFragment(), GTAFragmentInterface {
         super.subscribeToLoader(mViewModel)
 
         mDisposeBag.add(mViewModel.mConfigServerSuccess.subscribe{ configSuccess : Boolean ->
-            if(configSuccess){
-
-            }
+            if(configSuccess) super.mNavigationManager.showFragment(MBCFragmentKeys.HOME)
         })
 
         mViewModel.loadData()
