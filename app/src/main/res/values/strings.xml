@@ -17,4 +17,7 @@
     <string name="sensor_light">Lumière</string>
     <string name="sensor_pressure">Pression</string>
     <string name="sensor_motion">Mouvement</string>
+
+    <string name="fragment_sensor_temperature_values_temperature_title_textview">Température</string>
+    <string name="fragment_sensor_temperature_values_humidity_title_textview">Humidité</string>
 </resources>

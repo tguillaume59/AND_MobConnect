@@ -15,12 +15,15 @@ import com.tguillaume.lamobilery.mobconnect.services.sensors.managers.MBCUISenso
 import com.tguillaume.lamobilery.mobconnect.ui.common.base_fragments.MBCBaseFragment
 import com.tguillaume.lamobilery.mobconnect.ui.home.holders.MBCSensorsHolder
 import com.tguillaume.lamobilery.mobconnect.ui.home.viewmodels.MBCHomeViewModel
+import com.tguillaume.lamobilery.mobconnect.utils.bundle.MBCBundleKeys
+import com.tguillaume.lamobilery.mobconnect.utils.navigation.managers.MBCSensorFragmentManagerInterface
 import org.koin.android.ext.android.inject
 
 class MBCHomeFragment : MBCBaseFragment(), GTARecyclerViewAdapterDelegate {
 
     private val mViewModel : MBCHomeViewModel = MBCHomeViewModel()
     private val mSensorUiManager : MBCUISensorManagerInterface by inject()
+    private val mFragmentSensorManager : MBCSensorFragmentManagerInterface by inject()
 
     private lateinit var mRecyclerView : RecyclerView
     private lateinit var mRecyclerViewAdapter: GTARecyclerViewAdapter
@@ -71,6 +74,9 @@ class MBCHomeFragment : MBCBaseFragment(), GTARecyclerViewAdapterDelegate {
 
         holder.itemView.setOnClickListener {
             val tBundle = Bundle()
+            tBundle.putString(MBCBundleKeys.ID_SENSOR, tSensors.mId)
+            val tFragmentKey : String = mFragmentSensorManager.getFragmentKeyWithSensorType(tSensors.mType)
+            mNavigationManager.showFragment(tFragmentKey, tBundle)
 
         }
     }

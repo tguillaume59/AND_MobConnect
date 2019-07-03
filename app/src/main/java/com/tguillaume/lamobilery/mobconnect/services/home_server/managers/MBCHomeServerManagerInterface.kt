@@ -16,4 +16,11 @@ interface MBCHomeServerManagerInterface : KoinComponent {
      * @param sCallback le callback
      */
     fun getListLinkedSensors(sCallback: GTADefaultCallBack)
+
+    /**
+     * Permet de récupérer la température de la piece
+     * @param sIdSensor l'id du capteur que l'on veut interroger
+     * @param sCallback le callback
+     */
+    fun getTemperature(sIdSensor : String, sCallback: GTADefaultCallBack)
 }

@@ -16,6 +16,10 @@
     <color name="home_cardview_background_light">#FFFFFF</color>
     <color name="home_title_light">#FFFFFF</color>
 
+    <color name="sensor_temperature_textview">#FFFFFF</color>
+    <color name="sensor_card_background">#FFFFFF</color>
+    <color name="sensor_card_separator_background">#878787</color>
+
     <color name="MBC_Blue">#499be9</color>
     <color name="MBC_Green">#228B22</color>
     <color name="MBC_White">#FFFFFF</color>

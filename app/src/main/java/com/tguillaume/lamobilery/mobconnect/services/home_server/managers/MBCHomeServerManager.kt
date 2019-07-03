@@ -6,6 +6,7 @@ import com.tguillaume.bird.lib_bird_kotlin.errors.GTAError
 import com.tguillaume.bird.lib_bird_kotlin.errors.GTAErrorManager
 import com.tguillaume.lamobilery.mobconnect.services.home_server.clients.MBCHomeServerClientIntefaces
 import com.tguillaume.lamobilery.mobconnect.services.home_server.models.MBCLinkedSensors
+import com.tguillaume.lamobilery.mobconnect.services.home_server.models.MBCTemperature
 import com.tguillaume.lamobilery.mobconnect.utils.network.MBCNetworkResponseKeys.SUCCESS
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -43,6 +44,20 @@ class MBCHomeServerManager : MBCHomeServerManagerInterface{
         }) {
             val rList : MutableList<MBCLinkedSensors> = mHomeServerClient.getListLinkedSensors().await()
             sCallback.onCompletion(rList, null)
+        }
+    }
+
+    /**
+     * cf doc dans l'interface
+     */
+    override fun getTemperature(sIdSensor : String, sCallback: GTADefaultCallBack){
+        Log.i(TAG, "getListLinkedSensors")
+        GlobalScope.launch(Dispatchers.Main + CoroutineExceptionHandler { _, t ->
+            val tError: GTAError = GTAErrorManager.getErrorWithThrowable(t)
+            sCallback.onCompletion(null, tError)
+        }) {
+            val tTemperature : MBCTemperature = mHomeServerClient.getTemperature(sIdSensor).await()
+            sCallback.onCompletion(tTemperature,null)
         }
     }
 }

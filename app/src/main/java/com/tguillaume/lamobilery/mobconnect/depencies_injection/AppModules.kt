@@ -10,6 +10,8 @@ import com.tguillaume.lamobilery.mobconnect.services.sensors.managers.MBCUISenso
 import com.tguillaume.lamobilery.mobconnect.services.sensors.managers.MBCUISensorManagerInterface
 import com.tguillaume.lamobilery.mobconnect.services.session.managers.MBCSessionManager
 import com.tguillaume.lamobilery.mobconnect.services.session.managers.interfaces.MBCSessionManagerInterface
+import com.tguillaume.lamobilery.mobconnect.utils.navigation.managers.MBCSensorFragmentManager
+import com.tguillaume.lamobilery.mobconnect.utils.navigation.managers.MBCSensorFragmentManagerInterface
 import com.tguillaume.lamobilery.mobconnect.utils.network.managers.MBCNetworkManager
 import com.tguillaume.lamobilery.mobconnect.utils.network.managers.MBCNetworkManagerInterface
 import com.tguillaume.lamobilery.mobconnect.utils.shared_prefs.MBCSharedPrefKeys.SHARED_PREF_NAME
@@ -32,4 +34,5 @@ val DependencyInjectionModules = module {
     single<MBCNetworkManagerInterface> { MBCNetworkManager() }
     single<MBCHomeServerClientIntefaces> { MBCHomeServerClient() }
     factory<MBCUISensorManagerInterface> { MBCUISensorManager() }
+    single<MBCSensorFragmentManagerInterface> { MBCSensorFragmentManager() }
 }
