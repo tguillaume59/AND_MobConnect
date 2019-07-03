@@ -5,6 +5,7 @@ import com.tguillaume.bird.lib_bird_kotlin.callbacks.GTADefaultCallBack
 import com.tguillaume.bird.lib_bird_kotlin.errors.GTAError
 import com.tguillaume.bird.lib_bird_kotlin.errors.GTAErrorManager
 import com.tguillaume.lamobilery.mobconnect.services.home_server.clients.MBCHomeServerClientIntefaces
+import com.tguillaume.lamobilery.mobconnect.services.home_server.models.MBCBrightnessState
 import com.tguillaume.lamobilery.mobconnect.services.home_server.models.MBCLinkedSensors
 import com.tguillaume.lamobilery.mobconnect.services.home_server.models.MBCTemperature
 import com.tguillaume.lamobilery.mobconnect.utils.network.MBCNetworkResponseKeys.SUCCESS
@@ -51,13 +52,24 @@ class MBCHomeServerManager : MBCHomeServerManagerInterface{
      * cf doc dans l'interface
      */
     override fun getTemperature(sIdSensor : String, sCallback: GTADefaultCallBack){
-        Log.i(TAG, "getListLinkedSensors")
+        Log.i(TAG, "getTemperature")
         GlobalScope.launch(Dispatchers.Main + CoroutineExceptionHandler { _, t ->
             val tError: GTAError = GTAErrorManager.getErrorWithThrowable(t)
             sCallback.onCompletion(null, tError)
         }) {
             val tTemperature : MBCTemperature = mHomeServerClient.getTemperature(sIdSensor).await()
             sCallback.onCompletion(tTemperature,null)
+        }
+    }
+
+    override fun getBrightnessState(sIdSensor : String, sCallback: GTADefaultCallBack){
+        Log.i(TAG, "getBrightnessState")
+        GlobalScope.launch(Dispatchers.Main + CoroutineExceptionHandler { _, t ->
+            val tError: GTAError = GTAErrorManager.getErrorWithThrowable(t)
+            sCallback.onCompletion(null, tError)
+        }) {
+            val tBrightness : MBCBrightnessState = mHomeServerClient.getBrightnessState(sIdSensor).await()
+            sCallback.onCompletion(tBrightness,null)
         }
     }
 }

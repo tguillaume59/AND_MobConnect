@@ -23,4 +23,12 @@ interface MBCHomeServerManagerInterface : KoinComponent {
      * @param sCallback le callback
      */
     fun getTemperature(sIdSensor : String, sCallback: GTADefaultCallBack)
+
+
+    /**
+     * Permet de récupérer l'état de luminosité de la pièce
+     * @param sIdSensor l'id du capteur que l'on veut interroger
+     * @param sCallback le callback
+     */
+    fun getBrightnessState(sIdSensor : String, sCallback: GTADefaultCallBack)
 }

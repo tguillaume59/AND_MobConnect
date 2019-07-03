@@ -8,4 +8,5 @@ object MBCUrls {
     const val SENSOR_AVAILABLE : String = "home/"
 
     const val SENSOR_TEMPERATURE : String = "temperature/{$URL_PRM_ID}/"
+    const val SENSOR_BRIGHTNESS : String = "daynight/{$URL_PRM_ID}/"
 }

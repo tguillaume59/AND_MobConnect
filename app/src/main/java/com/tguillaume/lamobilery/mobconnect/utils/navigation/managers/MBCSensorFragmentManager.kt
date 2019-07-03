@@ -9,6 +9,7 @@ class MBCSensorFragmentManager : MBCSensorFragmentManagerInterface {
     override fun getFragmentKeyWithSensorType(sSensorType : String) : String{
         return when (sSensorType){
             MBCEnumSensorsAvailable.TEMPERATURE -> MBCFragmentKeys.SENSOR_TEMPERATURE
+            MBCEnumSensorsAvailable.BRIGHTNESS -> MBCFragmentKeys.SENSOR_BRIGHTNESS
             else -> GTADefaultEnumFragment.DEFAULT_ERROR_FRAGMENT
         }
 

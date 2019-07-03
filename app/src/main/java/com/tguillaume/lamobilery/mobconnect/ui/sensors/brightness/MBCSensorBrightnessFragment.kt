@@ -1,4 +1,4 @@
-package com.tguillaume.lamobilery.mobconnect.ui.sensors.temperature
+package com.tguillaume.lamobilery.mobconnect.ui.sensors.brightness
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,17 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import com.tguillaume.lamobilery.mobconnect.R
 import com.tguillaume.lamobilery.mobconnect.ui.common.base_fragments.MBCBaseFragment
-import com.tguillaume.lamobilery.mobconnect.ui.sensors.temperature.viewmodels.MBCSensorTemperatureViewModel
+import com.tguillaume.lamobilery.mobconnect.ui.sensors.brightness.viewmodels.MBCSensorBrightnessViewmodel
 import com.tguillaume.lamobilery.mobconnect.utils.bundle.MBCBundleKeys
-import kotlinx.android.synthetic.main.fragment_sensor_temperature.*
+import kotlinx.android.synthetic.main.fragment_sensor_brightness.*
 
-class MBCSensorTemperatureFragment : MBCBaseFragment() {
+class MBCSensorBrightnessFragment : MBCBaseFragment() {
 
-    private val mViewModel : MBCSensorTemperatureViewModel = MBCSensorTemperatureViewModel()
+    private val mViewModel : MBCSensorBrightnessViewmodel = MBCSensorBrightnessViewmodel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_sensor_temperature, container,false)
+        return inflater.inflate(R.layout.fragment_sensor_brightness, container,false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -28,12 +28,8 @@ class MBCSensorTemperatureFragment : MBCBaseFragment() {
         super.subscribeToError(mViewModel)
         super.subscribeToLoader(mViewModel)
 
-        mDisposeBag.add(mViewModel.mTemperatureValue.subscribe{
-            fragment_sensor_brightness_values_temperature_value.text = "$it°c"
-        })
-
-        mDisposeBag.add(mViewModel.mHumitityValue.subscribe{
-            fragment_sensor_brightness_values_humidity_value_textview.text = "$it%"
+        mDisposeBag.add(mViewModel.mBrightness.subscribe{
+            fragment_sensor_brightness_value_textview.text = it
         })
 
         arguments?.let {

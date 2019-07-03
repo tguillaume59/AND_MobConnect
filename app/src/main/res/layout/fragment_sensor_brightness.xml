@@ -57,7 +57,7 @@
         app:layout_constraintStart_toStartOf="@+id/fragment_sensor_brightness_vertical_left_25_guideline"
         app:layout_constraintEnd_toEndOf="@+id/fragment_sensor_brightness_vertical_right_25_guideline"
         app:layout_constraintBottom_toTopOf="@+id/fragment_sensor_brightness_horizontal_top_40_guideline"
-        android:src="@drawable/ic_sensor_temperature"/>
+        android:src="@drawable/ic_sensor_brightness"/>
 
     <TextView
         android:id="@+id/fragment_sensor_brightness_textview"
@@ -69,7 +69,7 @@
         app:layout_constraintRight_toLeftOf="@+id/fragment_sensor_brightness_vertical_right_25_guideline"
         android:textColor="@color/sensor_temperature_textview"
         android:textSize="30sp"
-        android:text="@string/sensor_temperature"/>
+        android:text="@string/sensor_brightness"/>
 
     <android.support.v7.widget.CardView
         android:id="@+id/fragment_sensor_brightness_cardview"
@@ -86,69 +86,31 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <View
-                android:id="@+id/fragment_sensor_brightness_values_separator"
-                android:layout_width="1dp"
-                android:layout_height="0dp"
-                android:layout_margin="5dp"
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/fragment_sensor_brightness_card_title_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:textSize="22sp"
+                android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/fragment_sensor_brightness_card_title_textview"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/fragment_sensor_brightness_value_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_sensor_brightness_card_title_textview"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:background="@color/sensor_card_separator_background"/>
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/fragment_sensor_brightness_values_temperature_title_textview"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:gravity="center"
-                android:text="@string/fragment_sensor_brightness_values_temperature_title_textview"
-                android:textSize="22sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/fragment_sensor_brightness_values_separator"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/fragment_sensor_brightness_values_temperature_value"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_sensor_brightness_values_temperature_title_textview"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/fragment_sensor_brightness_values_separator"
-                android:gravity="center"
                 android:layout_margin="10dp"
                 android:textSize="40dp"
-                tools:text="22,5°c"/>
-
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/fragment_sensor_brightness_values_humidity_title_textview"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:gravity="center"
-                android:text="@string/fragment_sensor_brightness_values_humidity_title_textview"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/fragment_sensor_brightness_values_separator"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/fragment_sensor_brightness_values_humidity_value_textview"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_sensor_brightness_values_humidity_title_textview"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/fragment_sensor_brightness_values_separator"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:gravity="center"
-                android:layout_margin="10dp"
-                android:textSize="40dp"
-                tools:text="25%"/>
+                tools:text="Jour"/>
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>

@@ -18,6 +18,7 @@
     <string name="sensor_pressure">Pression</string>
     <string name="sensor_motion">Mouvement</string>
 
-    <string name="fragment_sensor_temperature_values_temperature_title_textview">Température</string>
-    <string name="fragment_sensor_temperature_values_humidity_title_textview">Humidité</string>
+    <string name="fragment_sensor_brightness_values_temperature_title_textview">Température</string>
+    <string name="fragment_sensor_brightness_values_humidity_title_textview">Humidité</string>
+    <string name="fragment_sensor_brightness_card_title_textview">Actuellellement il fait :</string>
 </resources>
