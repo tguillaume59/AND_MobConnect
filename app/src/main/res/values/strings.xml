@@ -22,4 +22,7 @@
     <string name="fragment_sensor_brightness_values_humidity_title_textview">Humidité</string>
     <string name="fragment_sensor_brightness_card_title_textview">Actuellellement il fait :</string>
     <string name="fragment_sensor_pressure_card_title_textview">Actuellellement le capteur de pression retourne l\'état : </string>
+    <string name="fragment_sensor_motion_detect">Actuellement il y a du mouvement dans la pièce</string>
+    <string name="fragment_sensor_motion_no_detect">Aucun mouvement detecté dans la pièce</string>
+    <string name="fragment_sensor_motion_last_detection">Dernière détection :</string>
 </resources>
