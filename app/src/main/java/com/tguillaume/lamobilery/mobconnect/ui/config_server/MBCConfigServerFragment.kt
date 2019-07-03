@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.tguillaume.bird.lib_bird_kotlin.viewmodels.GTAFragmentInterface
+import com.tguillaume.lamobilery.mobconnect.BuildConfig
 import com.tguillaume.lamobilery.mobconnect.R
 import com.tguillaume.lamobilery.mobconnect.ui.common.base_fragments.MBCBaseFragment
 import com.tguillaume.lamobilery.mobconnect.ui.config_server.viewmodels.MBCConfigServerViewModel
@@ -23,11 +24,19 @@ class MBCConfigServerFragment : MBCBaseFragment(), GTAFragmentInterface {
         super.onViewCreated(view, savedInstanceState)
         this.initOnClick()
         this.bindViewModel()
+
+        if(BuildConfig.DEBUG) fragment_config_serveur_ip_edittext.setText("192.168.1.104:8081")
     }
 
     override fun bindViewModel() {
         super.subscribeToError(mViewModel)
         super.subscribeToLoader(mViewModel)
+
+        mDisposeBag.add(mViewModel.mConfigServerSuccess.subscribe{ configSuccess : Boolean ->
+            if(configSuccess){
+
+            }
+        })
 
         mViewModel.loadData()
     }
